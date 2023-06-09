@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Title</title>
 </head>
 <body>
-$END$
+<h1>Tính chỉ số cân nặng</h1>
+<table>
+  <tr>
+    <td>Nhập cân nặng: (kg)</td>
+    <td><input type="number" id="kg"></td>
+  </tr>
+  <tr>
+    <td>Nhập chiều cao: (m)</td>
+    <td><input type="number" id="m"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="Kiểm tra" onclick="check()"></td>
+  </tr>
+</table>
+<p id="result"></p>
+<script>
+  function check() {
+    let weight = document.getElementById("kg").value
+    let height = document.getElementById("m").value
+    let bmi = weight / (height ^ 2)
+
+    if (bmi < 18.5) {
+      result = "UnderWeight";
+    } else if (bmi < 25) {
+      result = "Normal";
+    } else if (bmi < 30) {
+      result = "Overweight";
+    } else {
+      result = "Obese";
+    }
+    document.getElementById("result").innerHTML = result
+  }
+</script>
 </body>
 </html>
