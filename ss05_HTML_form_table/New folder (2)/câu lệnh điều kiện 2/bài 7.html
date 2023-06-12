@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bt7</title>
+</head>
+<body>
+<div>
+    Cước điện thoại: <br>
+    - 50000 đồng cho 60 phút đầu tiên<br>
+    - 30000 đồng cho 60 phút tiếp theo<br>
+    - 10000 đồng cho những phút tiếp theo<br>
+</div>
+<table>
+    <tr>
+        <td>Số phút:</td>
+        <td><input type="number" id="m" min="0"></td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="add()">Số tiền :</button>
+        </td>
+        <td id="result"></td>
+    </tr>
+</table>
+<script>
+    function add() {
+        let result = document.getElementById("result").value ;
+        let minute = document.getElementById('m').value ;
+        if (minute<=60){
+            result = minute*2000 ;
+        }else if (minute<=120){
+            result = 60*2000+(minute-60)*1600;
+        }else {
+            result = 60*2000+60*1600+(minute-120)*1000 ;
+        }
+        document.getElementById("result").innerHTML = result+' đồng'
+    }
+</script>
+
+</body>
+</html>
